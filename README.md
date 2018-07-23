@@ -1,0 +1,2 @@
+# academicmetatool-ontology
+AMT ontology
