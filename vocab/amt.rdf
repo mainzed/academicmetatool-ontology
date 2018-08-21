@@ -92,21 +92,21 @@
   <rdf:Property rdf:about="http://academic-meta-tool.xyz/vocab#placeholder" vs:term_status="stable" rdfs:label="placeholder" rdfs:comment="Placeholder for a concept name.">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <rdfs:domain rdf:resource="http://academic-meta-tool.xyz/vocab#Concept"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
     <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
   </rdf:Property>
   <rdf:Property rdf:about="http://www.w3.org/2000/01/rdf-schema#label" vs:term_status="stable" rdfs:label="rdfs-label" rdfs:comment="Label of a concept.">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <rdfs:domain rdf:resource="http://academic-meta-tool.xyz/vocab#Concept"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2000/01/rdf-schema#"/>
   </rdf:Property>
 <!-- Properties: Role -->
   <rdf:Property rdf:about="http://www.w3.org/2000/01/rdf-schema#label" vs:term_status="stable" rdfs:label="rdfs-label" rdfs:comment="Label of a role.">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <rdfs:domain rdf:resource="http://academic-meta-tool.xyz/vocab#Role"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-    <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2000/01/rdf-schema#"/>
   </rdf:Property>
   <rdf:Property rdf:about="http://www.w3.org/2000/01/rdf-schema#domain" vs:term_status="stable" rdfs:label="rdfs-domain" rdfs:comment="Domain of a role.">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
