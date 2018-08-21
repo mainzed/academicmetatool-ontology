@@ -95,14 +95,16 @@
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
     <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
   </rdf:Property>
-  <rdf:Property rdf:about="http://www.w3.org/2000/01/rdf-schema#label" vs:term_status="stable" rdfs:label="rdfs-label" rdfs:comment="Label of a concept.">
+  <rdf:Property rdf:about="http://academic-meta-tool.xyz/vocab#clabel" vs:term_status="stable" rdfs:label="rdfs-label" rdfs:comment="Label of a concept.">
+    <owl:equivalentProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <rdfs:domain rdf:resource="http://academic-meta-tool.xyz/vocab#Concept"/>
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
     <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2000/01/rdf-schema#"/>
   </rdf:Property>
 <!-- Properties: Role -->
-  <rdf:Property rdf:about="http://www.w3.org/2000/01/rdf-schema#label" vs:term_status="stable" rdfs:label="rdfs-label" rdfs:comment="Label of a role.">
+  <rdf:Property rdf:about="http://academic-meta-tool.xyz/vocab#rlabel" vs:term_status="stable" rdfs:label="rdfs-label" rdfs:comment="Label of a role.">
+    <owl:equivalentProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
     <rdfs:domain rdf:resource="http://academic-meta-tool.xyz/vocab#Role"/>
     <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
@@ -178,4 +180,12 @@
     <rdfs:range rdf:resource="http://academic-meta-tool.xyz/vocab#Role"/>
     <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
   </rdf:Property>
+<!-- Properties: Indivudual Concept -->
+  <rdf:Property rdf:about="http://academic-meta-tool.xyz/vocab#instanceOf" vs:term_status="stable" rdfs:label="instance Of" rdfs:comment="Instance of a Concept.">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://academic-meta-tool.xyz/vocab#Concept"/>
+    <rdfs:range rdf:resource="http://academic-meta-tool.xyz/vocab#Concept"/>
+    <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
+  </rdf:Property>
+  <!-- _:node03 rdf:subject rgzm:NL2 . _:node03 rdf:predicate rgzm:f . _:node03 rdf:object rgzm:WL2 . _:node03 amt:weight "0.71" . -->
 </rdf:RDF>
