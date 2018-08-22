@@ -7,185 +7,169 @@
     xmlns:wot="http://xmlns.com/wot/0.1/"
     xmlns:dc="http://purl.org/dc/elements/1.1/"
     xmlns:time="http://www.w3.org/2006/time#">
-<!-- Metadata -->
-  <owl:Ontology
-    rdf:about="http://academic-meta-tool.xyz/vocab#"
-    dc:licence="http://creativecommons.org/licenses/by/4.0/">
-    <dc:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-01-19</dc:created>
-    <dc:description xml:lang="en">The Academic Meta Tool Vocabulary</dc:description>
-    <dc:title xml:lang="en">The Academic Meta Tool Vocabulary</dc:title>
-    <owl:versionInfo>Penny</owl:versionInfo>
-    <dc:creator>Florian Thiery (Römisch-Germanisches Zentralmuseum Mainz)</dc:creator>
-    <dc:creator>Martin Unold (Institute for Spatial Information and Surveying Technology, Hochschule Mainz University of Applied Sciences)</dc:creator>
-  </owl:Ontology>
-<!-- Classes -->
-<!-- Concept &. Role -->
-  <rdfs:Class rdf:about="http://academic-meta-tool.xyz/vocab#Concept" rdfs:label="Concept" rdfs:comment="A node which is part of a triple with a vague edge." vs:term_status="stable">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
-    <rdfs:subClassOf><owl:Class rdf:about="http://www.w3.org/2000/01/rdf-schema#Class"/></rdfs:subClassOf>
-    <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
-  </rdfs:Class>
-  <rdfs:Class rdf:about="http://academic-meta-tool.xyz/vocab#Role" rdfs:label="Role" rdfs:comment="A vague edge which is part of a triple." vs:term_status="stable">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
-    <rdfs:subClassOf><owl:Class rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/></rdfs:subClassOf>
-    <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
-  </rdfs:Class>
-<!-- Logics -->
-<rdfs:Class rdf:about="http://academic-meta-tool.xyz/vocab#Logic" rdfs:label="Logic" rdfs:comment="A logic which is not instance-able by custom logics" vs:term_status="stable">
-  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
-  <rdfs:subClassOf><owl:Class rdf:about="http://www.w3.org/2000/01/rdf-schema#Class"/></rdfs:subClassOf>
-  <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
-</rdfs:Class>
-<rdfs:Class rdf:about="http://academic-meta-tool.xyz/vocab#LukasiewiczLogic" rdfs:label="Lukasiewicz Logic" rdfs:comment="Lukasiewicz Logic: Math.max(x+y-1,0)" vs:term_status="stable">
-  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
-  <rdfs:subClassOf><owl:Class rdf:about="http://academic-meta-tool.xyz/vocab#Logic"/></rdfs:subClassOf>
-  <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
-</rdfs:Class>
-<rdfs:Class rdf:about="http://academic-meta-tool.xyz/vocab#ProductLogic" rdfs:label="Product Logic" rdfs:comment="Product Logic: x*y" vs:term_status="stable">
-  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
-  <rdfs:subClassOf><owl:Class rdf:about="http://academic-meta-tool.xyz/vocab#Logic"/></rdfs:subClassOf>
-  <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
-</rdfs:Class>
-<rdfs:Class rdf:about="http://academic-meta-tool.xyz/vocab#GoedelLogic" rdfs:label="GoedelLogic" rdfs:comment="Goedel Logic: Math.min(x,y)" vs:term_status="stable">
-  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
-  <rdfs:subClassOf><owl:Class rdf:about="http://academic-meta-tool.xyz/vocab#Logic"/></rdfs:subClassOf>
-  <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
-</rdfs:Class>
-<!-- Axioms -->
-<rdfs:Class rdf:about="http://academic-meta-tool.xyz/vocab#Axiom" rdfs:label="Axiom" rdfs:comment="A statement that is taken to be true, to serve as a premise or starting point for further reasoning and arguments." vs:term_status="stable">
-  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
-  <rdfs:subClassOf><owl:Class rdf:about="http://www.w3.org/2000/01/rdf-schema#Class"/></rdfs:subClassOf>
-  <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
-</rdfs:Class>
-<rdfs:Class rdf:about="http://academic-meta-tool.xyz/vocab#InferenceAxiom" rdfs:label="Inference Axiom" rdfs:comment="An axiom to make inferences." vs:term_status="stable">
-  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
-  <rdfs:subClassOf><owl:Class rdf:about="http://academic-meta-tool.xyz/vocab#Axiom"/></rdfs:subClassOf>
-  <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
-</rdfs:Class>
-<rdfs:Class rdf:about="http://academic-meta-tool.xyz/vocab#IntegrityAxiom" rdfs:label="Integrity Axiom" rdfs:comment="An axiom to check integrety." vs:term_status="stable">
-  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
-  <rdfs:subClassOf><owl:Class rdf:about="http://academic-meta-tool.xyz/vocab#Axiom"/></rdfs:subClassOf>
-  <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
-</rdfs:Class>
-<rdfs:Class rdf:about="http://academic-meta-tool.xyz/vocab#RoleChainAxiom" rdfs:label="Role-Chain-Axiom" rdfs:comment="An axiom to make inferences of a three concept and two weighted role chain by transitivity." vs:term_status="stable">
-  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
-  <rdfs:subClassOf><owl:Class rdf:about="http://academic-meta-tool.xyz/vocab#InferenceAxiom"/></rdfs:subClassOf>
-  <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
-</rdfs:Class>
-<rdfs:Class rdf:about="http://academic-meta-tool.xyz/vocab#InverseAxiom" rdfs:label="Inverse-Axiom" rdfs:comment="An axiom to describe two inverse roles." vs:term_status="stable">
-  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
-  <rdfs:subClassOf><owl:Class rdf:about="http://academic-meta-tool.xyz/vocab#InferenceAxiom"/></rdfs:subClassOf>
-  <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
-</rdfs:Class>
-<rdfs:Class rdf:about="http://academic-meta-tool.xyz/vocab#DisjointAxiom" rdfs:label="Disjoint-Axiom" rdfs:comment="An axiom to describe disjoint roles." vs:term_status="stable">
-  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
-  <rdfs:subClassOf><owl:Class rdf:about="http://academic-meta-tool.xyz/vocab#IntegrityAxiom"/></rdfs:subClassOf>
-  <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
-</rdfs:Class>
-<rdfs:Class rdf:about="http://academic-meta-tool.xyz/vocab#SelfDisjointAxiom" rdfs:label="Self-Disjoint-Axiom" rdfs:comment="An axiom to describe self-disjoint roles." vs:term_status="stable">
-  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class" />
-  <rdfs:subClassOf><owl:Class rdf:about="http://academic-meta-tool.xyz/vocab#IntegrityAxiom"/></rdfs:subClassOf>
-  <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
-</rdfs:Class>
-<!-- Properties -->
-<!-- Properties: Concept -->
-  <rdf:Property rdf:about="http://academic-meta-tool.xyz/vocab#placeholder" vs:term_status="stable" rdfs:label="placeholder" rdfs:comment="Placeholder for a concept name.">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:domain rdf:resource="http://academic-meta-tool.xyz/vocab#Concept"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-    <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
-  </rdf:Property>
-  <rdf:Property rdf:about="http://academic-meta-tool.xyz/vocab#clabel" vs:term_status="stable" rdfs:label="rdfs-label" rdfs:comment="Label of a concept.">
-    <owl:equivalentProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:domain rdf:resource="http://academic-meta-tool.xyz/vocab#Concept"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2000/01/rdf-schema#"/>
-  </rdf:Property>
-<!-- Properties: Role -->
-  <rdf:Property rdf:about="http://academic-meta-tool.xyz/vocab#rlabel" vs:term_status="stable" rdfs:label="rdfs-label" rdfs:comment="Label of a role.">
-    <owl:equivalentProperty rdf:resource="http://www.w3.org/2000/01/rdf-schema#label"/>
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-    <rdfs:domain rdf:resource="http://academic-meta-tool.xyz/vocab#Role"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
-    <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2000/01/rdf-schema#"/>
-  </rdf:Property>
-  <rdf:Property rdf:about="http://www.w3.org/2000/01/rdf-schema#domain" vs:term_status="stable" rdfs:label="rdfs-domain" rdfs:comment="Domain of a role.">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://academic-meta-tool.xyz/vocab#Role"/>
-    <rdfs:range rdf:resource="http://academic-meta-tool.xyz/vocab#Concept"/>
-    <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
-  </rdf:Property>
-  <rdf:Property rdf:about="http://www.w3.org/2000/01/rdf-schema#range" vs:term_status="stable" rdfs:label="rdfs-range" rdfs:comment="Range of a role.">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://academic-meta-tool.xyz/vocab#Role"/>
-    <rdfs:range rdf:resource="http://academic-meta-tool.xyz/vocab#Concept"/>
-    <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
-  </rdf:Property>
-<!-- Properties: RoleChainAxiom -->
-  <rdf:Property rdf:about="http://academic-meta-tool.xyz/vocab#antecedent1" vs:term_status="stable" rdfs:label="antecedent1" rdfs:comment="Edge one of the Role-Chain-Axiom.">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://academic-meta-tool.xyz/vocab#RoleChainAxiom"/>
-    <rdfs:range rdf:resource="http://academic-meta-tool.xyz/vocab#Role"/>
-    <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
-  </rdf:Property>
-  <rdf:Property rdf:about="http://academic-meta-tool.xyz/vocab#antecedent2" vs:term_status="stable" rdfs:label="antecedent2" rdfs:comment="Edge two of the Role-Chain-Axiom.">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://academic-meta-tool.xyz/vocab#RoleChainAxiom"/>
-    <rdfs:range rdf:resource="http://academic-meta-tool.xyz/vocab#Role"/>
-    <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
-  </rdf:Property>
-  <rdf:Property rdf:about="http://academic-meta-tool.xyz/vocab#consequent" vs:term_status="stable" rdfs:label="consequent" rdfs:comment="Conclution of the Role-Chain-Axiom.">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://academic-meta-tool.xyz/vocab#RoleChainAxiom"/>
-    <rdfs:range rdf:resource="http://academic-meta-tool.xyz/vocab#Role"/>
-    <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
-  </rdf:Property>
-  <rdf:Property rdf:about="http://academic-meta-tool.xyz/vocab#logic" vs:term_status="stable" rdfs:label="logic" rdfs:comment="Logic of the Role-Chain-Axiom.">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://academic-meta-tool.xyz/vocab#RoleChainAxiom"/>
-    <rdfs:range rdf:resource="http://academic-meta-tool.xyz/vocab#Logic"/>
-    <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
-  </rdf:Property>
-<!-- Properties: InverseAxiom -->
-  <rdf:Property rdf:about="http://academic-meta-tool.xyz/vocab#antecedent" vs:term_status="stable" rdfs:label="antecedent" rdfs:comment="Way there of the Inverse-Axiom.">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://academic-meta-tool.xyz/vocab#InverseAxiom"/>
-    <rdfs:range rdf:resource="http://academic-meta-tool.xyz/vocab#Role"/>
-    <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
-  </rdf:Property>
-  <rdf:Property rdf:about="http://academic-meta-tool.xyz/vocab#inverse" vs:term_status="stable" rdfs:label="inverse" rdfs:comment="Way back of the Inverse-Axiom.">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://academic-meta-tool.xyz/vocab#InverseAxiom"/>
-    <rdfs:range rdf:resource="http://academic-meta-tool.xyz/vocab#Role"/>
-    <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
-  </rdf:Property>
-<!-- Properties: DisjointAxiom -->
-  <rdf:Property rdf:about="http://academic-meta-tool.xyz/vocab#role1" vs:term_status="stable" rdfs:label="role1" rdfs:comment="First role of the Disjoint-Axiom.">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://academic-meta-tool.xyz/vocab#DisjointAxiom"/>
-    <rdfs:range rdf:resource="http://academic-meta-tool.xyz/vocab#Role"/>
-    <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
-  </rdf:Property>
-  <rdf:Property rdf:about="http://academic-meta-tool.xyz/vocab#role2" vs:term_status="stable" rdfs:label="role2" rdfs:comment="Second role of the Disjoint-Axiom.">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://academic-meta-tool.xyz/vocab#DisjointAxiom"/>
-    <rdfs:range rdf:resource="http://academic-meta-tool.xyz/vocab#Role"/>
-    <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
-  </rdf:Property>
-<!-- Properties: SelfDisjointAxiom -->
-  <rdf:Property rdf:about="http://academic-meta-tool.xyz/vocab#role" vs:term_status="stable" rdfs:label="role" rdfs:comment="Role of the Self-Disjoint-Axiom.">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://academic-meta-tool.xyz/vocab#SelfDisjointAxiom"/>
-    <rdfs:range rdf:resource="http://academic-meta-tool.xyz/vocab#Role"/>
-    <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
-  </rdf:Property>
-<!-- Properties: Indivudual Concept -->
-  <rdf:Property rdf:about="http://academic-meta-tool.xyz/vocab#instanceOf" vs:term_status="stable" rdfs:label="instance Of" rdfs:comment="Instance of a Concept.">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
-    <rdfs:domain rdf:resource="http://academic-meta-tool.xyz/vocab#Concept"/>
-    <rdfs:range rdf:resource="http://academic-meta-tool.xyz/vocab#Concept"/>
-    <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
-  </rdf:Property>
-  <!-- _:node03 rdf:subject rgzm:NL2 . _:node03 rdf:predicate rgzm:f . _:node03 rdf:object rgzm:WL2 . _:node03 amt:weight "0.71" . -->
+    <!-- Metadata -->
+    <owl:Ontology rdf:about="http://academic-meta-tool.xyz/vocab#" dc:licence="http://creativecommons.org/licenses/by/4.0/">
+        <dc:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2018-01-19</dc:created>
+        <dc:description xml:lang="en">The Academic Meta Tool Vocabulary</dc:description>
+        <dc:title xml:lang="en">The Academic Meta Tool Vocabulary</dc:title>
+        <owl:versionInfo>Penny</owl:versionInfo>
+        <dc:creator>Florian Thiery (Römisch-Germanisches Zentralmuseum Mainz)</dc:creator>
+        <dc:creator>Martin Unold (Institute for Spatial Information and Surveying Technology, Hochschule Mainz University of Applied Sciences)</dc:creator>
+    </owl:Ontology>
+    <!-- Classes -->
+    <!-- Concept &. Role -->
+    <rdfs:Class rdf:about="http://academic-meta-tool.xyz/vocab#Concept" rdfs:label="Concept" rdfs:comment="A node which is part of a triple with a vague edge." vs:term_status="stable">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+        <rdfs:subClassOf><owl:Class rdf:about="http://www.w3.org/2000/01/rdf-schema#Class"/></rdfs:subClassOf>
+        <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
+    </rdfs:Class>
+    <rdfs:Class rdf:about="http://academic-meta-tool.xyz/vocab#Role" rdfs:label="Role" rdfs:comment="A vague edge which is part of a triple." vs:term_status="stable">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+        <rdfs:subClassOf><owl:Class rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"/></rdfs:subClassOf>
+        <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
+    </rdfs:Class>
+    <!-- Logics -->
+    <rdfs:Class rdf:about="http://academic-meta-tool.xyz/vocab#Logic" rdfs:label="Logic" rdfs:comment="A logic which is not instance-able by custom logics" vs:term_status="stable">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+        <rdfs:subClassOf><owl:Class rdf:about="http://www.w3.org/2000/01/rdf-schema#Class"/></rdfs:subClassOf>
+        <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
+    </rdfs:Class>
+    <rdfs:Class rdf:about="http://academic-meta-tool.xyz/vocab#LukasiewiczLogic" rdfs:label="Lukasiewicz Logic" rdfs:comment="Lukasiewicz Logic: Math.max(x+y-1,0)" vs:term_status="stable">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+        <rdfs:subClassOf><owl:Class rdf:about="http://academic-meta-tool.xyz/vocab#Logic"/></rdfs:subClassOf>
+        <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
+    </rdfs:Class>
+    <rdfs:Class rdf:about="http://academic-meta-tool.xyz/vocab#ProductLogic" rdfs:label="Product Logic" rdfs:comment="Product Logic: x*y" vs:term_status="stable">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+        <rdfs:subClassOf><owl:Class rdf:about="http://academic-meta-tool.xyz/vocab#Logic"/></rdfs:subClassOf>
+        <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
+    </rdfs:Class>
+    <rdfs:Class rdf:about="http://academic-meta-tool.xyz/vocab#GoedelLogic" rdfs:label="GoedelLogic" rdfs:comment="Goedel Logic: Math.min(x,y)" vs:term_status="stable">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+        <rdfs:subClassOf><owl:Class rdf:about="http://academic-meta-tool.xyz/vocab#Logic"/></rdfs:subClassOf>
+        <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
+    </rdfs:Class>
+    <!-- Axioms -->
+    <rdfs:Class rdf:about="http://academic-meta-tool.xyz/vocab#Axiom" rdfs:label="Axiom" rdfs:comment="A statement that is taken to be true, to serve as a premise or starting point for further reasoning and arguments." vs:term_status="stable">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+        <rdfs:subClassOf><owl:Class rdf:about="http://www.w3.org/2000/01/rdf-schema#Class"/></rdfs:subClassOf>
+        <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
+    </rdfs:Class>
+    <rdfs:Class rdf:about="http://academic-meta-tool.xyz/vocab#InferenceAxiom" rdfs:label="Inference Axiom" rdfs:comment="An axiom to make inferences." vs:term_status="stable">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+        <rdfs:subClassOf><owl:Class rdf:about="http://academic-meta-tool.xyz/vocab#Axiom"/></rdfs:subClassOf>
+        <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
+    </rdfs:Class>
+    <rdfs:Class rdf:about="http://academic-meta-tool.xyz/vocab#IntegrityAxiom" rdfs:label="Integrity Axiom" rdfs:comment="An axiom to check integrety." vs:term_status="stable">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+        <rdfs:subClassOf><owl:Class rdf:about="http://academic-meta-tool.xyz/vocab#Axiom"/></rdfs:subClassOf>
+        <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
+    </rdfs:Class>
+    <rdfs:Class rdf:about="http://academic-meta-tool.xyz/vocab#RoleChainAxiom" rdfs:label="Role-Chain-Axiom" rdfs:comment="An axiom to make inferences of a three concept and two weighted role chain by transitivity." vs:term_status="stable">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+        <rdfs:subClassOf><owl:Class rdf:about="http://academic-meta-tool.xyz/vocab#InferenceAxiom"/></rdfs:subClassOf>
+        <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
+    </rdfs:Class>
+    <rdfs:Class rdf:about="http://academic-meta-tool.xyz/vocab#InverseAxiom" rdfs:label="Inverse-Axiom" rdfs:comment="An axiom to describe two inverse roles." vs:term_status="stable">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+        <rdfs:subClassOf><owl:Class rdf:about="http://academic-meta-tool.xyz/vocab#InferenceAxiom"/></rdfs:subClassOf>
+        <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
+    </rdfs:Class>
+    <rdfs:Class rdf:about="http://academic-meta-tool.xyz/vocab#DisjointAxiom" rdfs:label="Disjoint-Axiom" rdfs:comment="An axiom to describe disjoint roles." vs:term_status="stable">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+        <rdfs:subClassOf><owl:Class rdf:about="http://academic-meta-tool.xyz/vocab#IntegrityAxiom"/></rdfs:subClassOf>
+        <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
+    </rdfs:Class>
+    <rdfs:Class rdf:about="http://academic-meta-tool.xyz/vocab#SelfDisjointAxiom" rdfs:label="Self-Disjoint-Axiom" rdfs:comment="An axiom to describe self-disjoint roles." vs:term_status="stable">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+        <rdfs:subClassOf><owl:Class rdf:about="http://academic-meta-tool.xyz/vocab#IntegrityAxiom"/></rdfs:subClassOf>
+        <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
+    </rdfs:Class>
+    <!-- Properties -->
+    <!-- Properties: Concept -->
+    <rdf:Property rdf:about="http://academic-meta-tool.xyz/vocab#placeholder" vs:term_status="stable" rdfs:label="placeholder" rdfs:comment="Placeholder for a concept name.">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+        <rdfs:domain rdf:resource="http://academic-meta-tool.xyz/vocab#Concept"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+        <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
+    </rdf:Property>
+    <rdf:Property rdf:about="http://academic-meta-tool.xyz/vocab#instanceOf" vs:term_status="stable" rdfs:label="instance Of" rdfs:comment="Instance of a Concept.">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+        <rdfs:domain rdf:resource="http://academic-meta-tool.xyz/vocab#Concept"/>
+        <rdfs:range rdf:resource="http://academic-meta-tool.xyz/vocab#Concept"/>
+        <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
+    </rdf:Property>
+    <!-- rdfs:label -->
+    <!-- Properties: Role -->
+    <!-- rdfs:label -->
+    <!-- rdfs:domain -->
+    <!-- rdfs:range -->
+    <!-- Properties: RoleChainAxiom -->
+    <rdf:Property rdf:about="http://academic-meta-tool.xyz/vocab#antecedent1" vs:term_status="stable" rdfs:label="antecedent1" rdfs:comment="Edge one of the Role-Chain-Axiom.">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+        <rdfs:domain rdf:resource="http://academic-meta-tool.xyz/vocab#RoleChainAxiom"/>
+        <rdfs:range rdf:resource="http://academic-meta-tool.xyz/vocab#Role"/>
+        <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
+    </rdf:Property>
+    <rdf:Property rdf:about="http://academic-meta-tool.xyz/vocab#antecedent2" vs:term_status="stable" rdfs:label="antecedent2" rdfs:comment="Edge two of the Role-Chain-Axiom.">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+        <rdfs:domain rdf:resource="http://academic-meta-tool.xyz/vocab#RoleChainAxiom"/>
+        <rdfs:range rdf:resource="http://academic-meta-tool.xyz/vocab#Role"/>
+        <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
+    </rdf:Property>
+    <rdf:Property rdf:about="http://academic-meta-tool.xyz/vocab#consequent" vs:term_status="stable" rdfs:label="consequent" rdfs:comment="Conclution of the Role-Chain-Axiom.">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+        <rdfs:domain rdf:resource="http://academic-meta-tool.xyz/vocab#RoleChainAxiom"/>
+        <rdfs:range rdf:resource="http://academic-meta-tool.xyz/vocab#Role"/>
+        <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
+    </rdf:Property>
+    <rdf:Property rdf:about="http://academic-meta-tool.xyz/vocab#logic" vs:term_status="stable" rdfs:label="logic" rdfs:comment="Logic of the Role-Chain-Axiom.">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+        <rdfs:domain rdf:resource="http://academic-meta-tool.xyz/vocab#RoleChainAxiom"/>
+        <rdfs:range rdf:resource="http://academic-meta-tool.xyz/vocab#Logic"/>
+        <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
+    </rdf:Property>
+    <!-- Properties: InverseAxiom -->
+    <rdf:Property rdf:about="http://academic-meta-tool.xyz/vocab#antecedent" vs:term_status="stable" rdfs:label="antecedent" rdfs:comment="Way there of the Inverse-Axiom.">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+        <rdfs:domain rdf:resource="http://academic-meta-tool.xyz/vocab#InverseAxiom"/>
+        <rdfs:range rdf:resource="http://academic-meta-tool.xyz/vocab#Role"/>
+        <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
+    </rdf:Property>
+    <rdf:Property rdf:about="http://academic-meta-tool.xyz/vocab#inverse" vs:term_status="stable" rdfs:label="inverse" rdfs:comment="Way back of the Inverse-Axiom.">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+        <rdfs:domain rdf:resource="http://academic-meta-tool.xyz/vocab#InverseAxiom"/>
+        <rdfs:range rdf:resource="http://academic-meta-tool.xyz/vocab#Role"/>
+        <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
+    </rdf:Property>
+    <!-- Properties: DisjointAxiom -->
+    <rdf:Property rdf:about="http://academic-meta-tool.xyz/vocab#role1" vs:term_status="stable" rdfs:label="role1" rdfs:comment="First role of the Disjoint-Axiom.">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+        <rdfs:domain rdf:resource="http://academic-meta-tool.xyz/vocab#DisjointAxiom"/>
+        <rdfs:range rdf:resource="http://academic-meta-tool.xyz/vocab#Role"/>
+        <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
+    </rdf:Property>
+    <rdf:Property rdf:about="http://academic-meta-tool.xyz/vocab#role2" vs:term_status="stable" rdfs:label="role2" rdfs:comment="Second role of the Disjoint-Axiom.">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+        <rdfs:domain rdf:resource="http://academic-meta-tool.xyz/vocab#DisjointAxiom"/>
+        <rdfs:range rdf:resource="http://academic-meta-tool.xyz/vocab#Role"/>
+        <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
+    </rdf:Property>
+    <!-- Properties: SelfDisjointAxiom -->
+    <rdf:Property rdf:about="http://academic-meta-tool.xyz/vocab#role" vs:term_status="stable" rdfs:label="role" rdfs:comment="Role of the Self-Disjoint-Axiom.">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+        <rdfs:domain rdf:resource="http://academic-meta-tool.xyz/vocab#SelfDisjointAxiom"/>
+        <rdfs:range rdf:resource="http://academic-meta-tool.xyz/vocab#Role"/>
+        <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
+    </rdf:Property>
+    <!-- Properties: Quadruple -->
+    <!-- rdf:subject -->
+    <!-- rdf:predicate -->
+    <!-- rdf:object -->
+    <rdf:Property rdf:about="http://academic-meta-tool.xyz/vocab#weight" vs:term_status="stable" rdfs:label="weight" rdfs:comment="Value of weight (degree of vagueness) of the vague edge between [0;1].">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+        <rdfs:domain rdf:resource="http://academic-meta-tool.xyz/vocab#Concept"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+        <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
+    </rdf:Property>
 </rdf:RDF>
