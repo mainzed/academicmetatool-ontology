@@ -168,7 +168,6 @@
     <!-- rdf:object -->
     <rdf:Property rdf:about="http://academic-meta-tool.xyz/vocab#weight" vs:term_status="stable" rdfs:label="weight" rdfs:comment="Value of weight (degree of vagueness) of the vague edge between [0;1].">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
-        <rdfs:domain rdf:resource="http://academic-meta-tool.xyz/vocab#Concept"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
         <rdfs:isDefinedBy rdf:resource="http://academic-meta-tool.xyz/vocab/"/>
     </rdf:Property>
