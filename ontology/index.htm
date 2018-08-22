@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+  <title>Network | Label alignment</title>
+
+  <script type="text/javascript" src="http://visjs.org/dist/vis.js"></script>
+  <link href="http://visjs.org/dist/vis-network.min.css" rel="stylesheet" type="text/css" />
+
+  <style type="text/css">
+    #mynetwork {
+      width: 100%;
+      height: 800px;
+      border: 1px solid lightgray;
+    }
+    p {
+      max-width:600px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+<div id="mynetwork"></div>
+<pre id="eventSpan"></pre>
+
+<script type="text/javascript">
+  // create an array with nodes
+  var nodes = [
+      // Concept
+    {id: 1, label: 'ConceptInstance', shape: 'dot', size: 20, font: {size: 20, face: 'monospace'}, color: { background: 'blue', border: 'blue'}},
+    {id: 2, label: 'amt:Concept', shape: 'box', font: {size: 16, face: 'monospace'}, color: { background: 'white', border: 'black'}},
+    {id: 3, label: '\"concept name\"', shape: 'square', size: 5, font: {size: 14, face: 'monospace'}, color: { background: 'white', border: 'black'}},
+    {id: 4, label: '\"concept placeholder\"', shape: 'square', size: 5, font: {size: 14, face: 'monospace'}, color: { background: 'white', border: 'black'}},
+    // Role
+    {id: 5, label: 'RoleInstance', shape: 'dot', size: 20, font: {size: 20, face: 'monospace'}, color: { background: 'blue', border: 'blue'}},
+    {id: 6, label: 'amt:Role', shape: 'box', font: {size: 16, face: 'monospace'}, color: { background: 'white', border: 'black'}},
+    {id: 7, label: '\"role name\"', shape: 'square', size: 5, font: {size: 14, face: 'monospace'}, color: { background: 'white', border: 'black'}},
+    // RCA
+    {id: 8, label: 'RCA-Instance', shape: 'dot', size: 20, font: {size: 20, face: 'monospace'}, color: { background: 'blue', border: 'blue'}},
+    {id: 9, label: 'amt:RoleChainAxiom', shape: 'box', font: {size: 16, face: 'monospace'}, color: { background: 'white', border: 'black'}},
+    {id: 14, label: 'amt:Logic', shape: 'dot', size: 5, font: {size: 16, face: 'monospace'}, color: { background: 'white', border: 'black'}},
+    // IA
+    {id: 20, label: 'IA-Instance', shape: 'dot', size: 20, font: {size: 20, face: 'monospace'}, color: { background: 'blue', border: 'blue'}},
+    {id: 21, label: 'amt:InverseAxiom', shape: 'box', font: {size: 16, face: 'monospace'}, color: { background: 'white', border: 'black'}},
+    // DA
+    {id: 30, label: 'DA-Instance', shape: 'dot', size: 20, font: {size: 20, face: 'monospace'}, color: { background: 'blue', border: 'blue'}},
+    {id: 31, label: 'amt:DisjointAxiom', shape: 'box', font: {size: 16, face: 'monospace'}, color: { background: 'white', border: 'black'}},
+    // SDA
+    {id: 40, label: 'SDA-Instance', shape: 'dot', size: 20, font: {size: 20, face: 'monospace'}, color: { background: 'blue', border: 'blue'}},
+    {id: 41, label: 'amt:SelfDisjointAxiom', shape: 'box', font: {size: 16, face: 'monospace'}, color: { background: 'white', border: 'black'}},
+    // quatruple
+    {id: 50, shape: 'dot', color: { background: 'white', border: 'red'}},
+    {id: 51, label: '[0;1]', shape: 'square', size: 5, font: {size: 14, face: 'monospace'}, color: { background: 'white', border: 'black'}},
+  ];
+
+  // create an array with edges
+  var edges = [
+    {from: 1, to: 2, label: 'a', font: {align: 'horizontal'}, arrows: 'to', smooth: {type: 'dynamic', roundness: 0.2}, length: 100},
+    {from: 1, to: 3, label: 'rdfs:label', font: {align: 'horizontal'}, arrows: 'to', smooth: {type: 'dynamic', roundness: 0.2}, length: 200},
+    {from: 1, to: 4, label: 'amt:placeholder', font: {align: 'horizontal'}, arrows: 'to', smooth: {type: 'dynamic', roundness: 0.2}, length: 200},
+    // role
+    {from: 5, to: 6, label: 'a', font: {align: 'horizontal'}, arrows: 'to', smooth: {type: 'dynamic', roundness: 0.2}, length: 100},
+    {from: 5, to: 7, label: 'rdfs:label', font: {align: 'horizontal'}, arrows: 'to', smooth: {type: 'dynamic', roundness: 0.2}, length: 200},
+    {from: 5, to: 1, label: 'rdfs:domain', font: {align: 'horizontal'}, arrows: 'to', smooth: {type: 'dynamic', roundness: 0.2}, length: 300},
+    {from: 5, to: 1, label: 'rdfs:range', font: {align: 'horizontal'}, arrows: 'to', smooth: {type: 'dynamic', roundness: 0.2}, length: 300},
+    // rca
+    {from: 8, to: 9, label: 'a', font: {align: 'horizontal'}, arrows: 'to', smooth: {type: 'dynamic', roundness: 0.2}, length: 200},
+    {from: 8, to: 5, label: 'amt:antecedent1', font: {align: 'horizontal'}, arrows: 'to', smooth: {type: 'curvedCW', roundness: 0.2}, length: 300},
+    {from: 8, to: 5, label: 'amt:antecedent2', font: {align: 'horizontal'}, arrows: 'to', smooth: {type: 'curvedCCW', roundness: 0.5}, length: 300},
+    {from: 8, to: 5, label: 'amt:consequent', font: {align: 'horizontal'}, arrows: 'to', smooth: {type: 'vertical', roundness: 0.5}, length: 300},
+    {from: 8, to: 14, label: 'amt:logic', font: {align: 'horizontal'}, arrows: 'to', smooth: {type: 'dynamic', roundness: 0.2}, length: 200},
+    // IA
+    {from: 20, to: 21, label: 'a', font: {align: 'horizontal'}, arrows: 'to', smooth: {type: 'dynamic', roundness: 0.2}, length: 100},
+    {from: 20, to: 5, label: 'amt:antecedent', font: {align: 'horizontal'}, arrows: 'to', smooth: {type: 'dynamic', roundness: 0.2}, length: 300},
+    {from: 20, to: 5, label: 'amt:inverse', font: {align: 'horizontal'}, arrows: 'to', smooth: {type: 'dynamic', roundness: 0.2}, length: 300},
+    // DA
+    {from: 30, to: 31, label: 'a', font: {align: 'horizontal'}, arrows: 'to', smooth: {type: 'dynamic', roundness: 0.2}, length: 100},
+    {from: 30, to: 5, label: 'amt:role1', font: {align: 'horizontal'}, arrows: 'to', smooth: {type: 'dynamic', roundness: 0.2}, length: 300},
+    {from: 30, to: 5, label: 'amt:role2', font: {align: 'horizontal'}, arrows: 'to', smooth: {type: 'dynamic', roundness: 0.2}, length: 300},
+    // SDA
+    {from: 40, to: 41, label: 'a', font: {align: 'horizontal'}, arrows: 'to', smooth: {type: 'dynamic', roundness: 0.2}, length: 200},
+    {from: 40, to: 5, label: 'amt:role', font: {align: 'horizontal'}, arrows: 'to', smooth: {type: 'dynamic', roundness: 0.2}, length: 300},
+    // INST
+    {from: 1, to: 2, label: 'amt:instanceOf', font: {align: 'horizontal'}, arrows: 'to', smooth: {type: 'dynamic', roundness: 0.2}, length: 200, color:{color:'red'}},
+    // quatruple
+    {from: 50, to: 51, label: 'amt:weight', font: {align: 'horizontal'}, arrows: 'to', smooth: {type: 'dynamic', roundness: 0.2}, length: 200, color:{color:'red'}},
+    {from: 50, to: 1, label: 'rdf:subject', font: {align: 'horizontal'}, arrows: 'to', smooth: {type: 'dynamic', roundness: 0.2}, length: 250, color:{color:'red'}},
+    {from: 50, to: 5, label: 'rdf:predicate', font: {align: 'horizontal'}, arrows: 'to', smooth: {type: 'dynamic', roundness: 0.2}, length: 200, color:{color:'red'}},
+    {from: 50, to: 1, label: 'rdf:object', font: {align: 'horizontal'}, arrows: 'to', smooth: {type: 'dynamic', roundness: 0.2}, length: 250, color:{color:'red'}},
+  ];
+
+  // create a network
+  var container = document.getElementById('mynetwork');
+  var data = {
+    nodes: nodes,
+    edges: edges
+  };
+  var options = { layout: { randomSeed: 8} };
+  var network = new vis.Network(container, data, options);
+</script>
+
+</body>
+</html>
