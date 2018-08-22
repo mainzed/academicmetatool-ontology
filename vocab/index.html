@@ -29,13 +29,17 @@
 <h2 id="namespace">Namespace</h2>
 <p>The official Academic Meta Tool Vocabulary namespace is <code class="highlighter-rouge">http://academic-meta-tool.xyz/vocab#</code>.</p>
 
-<h2 id="visualisation">Visualisation</h2>
+<h2 id="visualisation-owl">Visualisation of the OWL Ontology</h2>
 <p><a href="http://www.visualdataweb.de/webvowl/#iri=http://academic-meta-tool.xyz/amt.rdf" target="_blank"><img src="amtontology.png" width="60%"></a></p>
-<p>An interactive visualisation using <a href="http://www.visualdataweb.de/webvowl/#iri=http://academic-meta-tool.xyz/amt.rdf" target="_blank">WebVOWL</a>.</p>
+<p>Have a deeper look in an interactive visualisation using <a href="http://www.visualdataweb.de/webvowl/#iri=http://academic-meta-tool.xyz/amt.rdf" target="_blank">WebVOWL</a>.</p>
+
+<h2 id="visualisation-ontology-amt">Visualisation of a AMT Ontology</h2>
+<p><a href="http://academic-meta-tool.xyz/ontology/ontologyviewer.htm" target="_blank"><img src="../ontology/amtontologyimg_small.png" width="80%"></a></p>
+<p>Have a deeper look in an interactive visualisation using <a href="http://academic-meta-tool.xyz/ontology/ontologyviewer.htm" target="_blank">visjs</a>.</p>
 
 <h2 id="amt-classes">AMT Classes</h2>
 <p>Below are Linked Data identifiers for the Academic Meta Tool Classes found in the Academic Meta Tool Vocabulary.</p>
-<h3>Concept &. Role</h3>
+<h3>Concept and Role</h3>
 <h3><a name="Concept">amt:Concept</a></h3>
 <table>
   <tr>
@@ -48,7 +52,7 @@
   </tr>
   <tr>
     <td>Label:</td>
-    <td><code>AMT Concept</code></td>
+    <td><code>Concept</code></td>
   </tr>
   <tr>
     <td>rdfs:subClassOf</td>
@@ -67,11 +71,11 @@
   </tr>
   <tr>
     <td>Label:</td>
-    <td><code>AMT Role</code></td>
+    <td><code>Role</code></td>
   </tr>
   <tr>
     <td>rdfs:subClassOf</td>
-    <td><code><a href="http://www.w3.org/2000/01/rdf-schema#Class">http://www.w3.org/2000/01/rdf-schema#Class</a></code></td>
+    <td><code><a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property">http://www.w3.org/1999/02/22-rdf-syntax-ns#Property</a></code></td>
   </tr>
 </table>
 <h3>Logics</h3>
@@ -83,7 +87,7 @@
   </tr>
   <tr>
     <td>Definition:</td>
-    <td><code>What is a amt:Logic? not instance-able by custom logics</code></td>
+    <td><code>A logic which is not instance-able by custom logics.</code></td>
   </tr>
   <tr>
     <td>Label:</td>
@@ -102,14 +106,14 @@
   </tr>
   <tr>
     <td>Definition:</td>
-    <td><code>What is a amt:LukasiewiczLogic?</code></td>
+    <td><code>Lukasiewicz Logic: Math.max(x+y-1,0)</code></td>
   </tr>
   <tr>
     <td>Label:</td>
     <td><code>Lukasiewicz Logic</code></td>
   </tr>
   <tr>
-    <td>rdf:type</td>
+    <td>rdfs:subClassOf</td>
     <td><code><a href="http://academic-meta-tool.xyz/vocab#Logic">http://academic-meta-tool.xyz/vocab#Logic</a></code></td>
   </tr>
 </table>
@@ -121,14 +125,14 @@
   </tr>
   <tr>
     <td>Definition:</td>
-    <td><code>What is a amt:ProductLogic?</code></td>
+    <td><code>Product Logic: x*y</code></td>
   </tr>
   <tr>
     <td>Label:</td>
     <td><code>Product Logic</code></td>
   </tr>
   <tr>
-    <td>rdf:type</td>
+    <td>rdfs:subClassOf</td>
     <td><code><a href="http://academic-meta-tool.xyz/vocab#Logic">http://academic-meta-tool.xyz/vocab#Logic</a></code></td>
   </tr>
 </table>
@@ -140,7 +144,7 @@
   </tr>
   <tr>
     <td>Definition:</td>
-    <td><code>What is a amt:GoedelLogic?</code></td>
+    <td><code>Goedel Logic: Math.min(x,y)</code></td>
   </tr>
   <tr>
     <td>Label:</td>
@@ -160,7 +164,7 @@
   </tr>
   <tr>
     <td>Definition:</td>
-    <td><code>What is a amt:Axiom? not instance-able</code></td>
+    <td><code>A statement that is taken to be true, to serve as a premise or starting point for further reasoning and arguments.</code></td>
   </tr>
   <tr>
     <td>Label:</td>
@@ -179,7 +183,7 @@
   </tr>
   <tr>
     <td>Definition:</td>
-    <td><code>What is a amt:InferenceAxiom? not instance-able</code></td>
+    <td><code>An axiom to make inferences.</code></td>
   </tr>
   <tr>
     <td>Label:</td>
@@ -198,7 +202,7 @@
   </tr>
   <tr>
     <td>Definition:</td>
-    <td><code>What is a amt:IntegrityAxiom? not instance-able</code></td>
+    <td><code>An axiom to check integrety.</code></td>
   </tr>
   <tr>
     <td>Label:</td>
@@ -217,19 +221,15 @@
   </tr>
   <tr>
     <td>Definition:</td>
-    <td><code>What is a amt:RoleChainAxiom?</code></td>
+    <td><code>An axiom to make inferences of a three concept and two weighted role chain by transitivity.</code></td>
   </tr>
   <tr>
     <td>Label:</td>
-    <td><code>Role Chain Axiom</code></td>
+    <td><code>Role-Chain-Axiom</code></td>
   </tr>
   <tr>
     <td>rdfs:subClassOf</td>
     <td><code><a href="http://academic-meta-tool.xyz/vocab#InferenceAxiom">http://academic-meta-tool.xyz/vocab#InferenceAxiom</a></code></td>
-  </tr>
-  <tr>
-    <td>Instance:</td>
-    <td><code><a href="http://academic-meta-tool.xyz/ontology#RoleChainAxiom">http://academic-meta-tool.xyz/ontology#RoleChainAxiom</a></code></td>
   </tr>
 </table>
 <h3><a name="InverseAxiom">amt:InverseAxiom</a></h3>
@@ -240,19 +240,15 @@
   </tr>
   <tr>
     <td>Definition:</td>
-    <td><code>What is a amt:InverseAxiom?</code></td>
+    <td><code>An axiom to describe two inverse roles.</code></td>
   </tr>
   <tr>
     <td>Label:</td>
-    <td><code>Inverse Axiom</code></td>
+    <td><code>Inverse-Axiom</code></td>
   </tr>
   <tr>
     <td>rdfs:subClassOf</td>
     <td><code><a href="http://academic-meta-tool.xyz/vocab#InferenceAxiom">http://academic-meta-tool.xyz/vocab#InferenceAxiom</a></code></td>
-  </tr>
-  <tr>
-    <td>Instance:</td>
-    <td><code><a href="http://academic-meta-tool.xyz/ontology#InverseAxiom">http://academic-meta-tool.xyz/ontology#InverseAxiom</a></code></td>
   </tr>
 </table>
 <h3><a name="DisjointAxiom">amt:DisjointAxiom</a></h3>
@@ -263,19 +259,15 @@
   </tr>
   <tr>
     <td>Definition:</td>
-    <td><code>What is a amt:DisjointAxiom?</code></td>
+    <td><code>An axiom to describe disjoint roles.</code></td>
   </tr>
   <tr>
     <td>Label:</td>
-    <td><code>Disjoint Axiom</code></td>
+    <td><code>Disjoint-Axiom</code></td>
   </tr>
   <tr>
     <td>rdfs:subClassOf</td>
     <td><code><a href="http://academic-meta-tool.xyz/vocab#IntegrityAxiom">http://academic-meta-tool.xyz/vocab#IntegrityAxiom</a></code></td>
-  </tr>
-  <tr>
-    <td>Instance:</td>
-    <td><code><a href="http://academic-meta-tool.xyz/ontology#DisjointAxiom">http://academic-meta-tool.xyz/ontology#DisjointAxiom</a></code></td>
   </tr>
 </table>
 <h3><a name="SelfDisjointAxiom">amt:SelfDisjointAxiom</a></h3>
@@ -286,24 +278,20 @@
   </tr>
   <tr>
     <td>Definition:</td>
-    <td><code>What is a amt:SelfDisjointAxiom?</code></td>
+    <td><code>An axiom to describe self-disjoint roles.</code></td>
   </tr>
   <tr>
     <td>Label:</td>
-    <td><code>Self Disjoint Axiom</code></td>
+    <td><code>Self-Disjoint-Axiom</code></td>
   </tr>
   <tr>
     <td>rdfs:subClassOf</td>
     <td><code><a href="http://academic-meta-tool.xyz/vocab#IntegrityAxiom">http://academic-meta-tool.xyz/vocab#IntegrityAxiom</a></code></td>
   </tr>
-  <tr>
-    <td>Instance:</td>
-    <td><code><a href="http://academic-meta-tool.xyz/ontology#SelfDisjointAxiom">http://academic-meta-tool.xyz/ontology#SelfDisjointAxiom</a></code></td>
-  </tr>
 </table>
 
 <h2 id="core-properties">AMT Properties</h2>
-<p>Below are Linked Data identifiers for the Academic Meta Tool Properties found in the <a href="http://academic-meta-tool.xyz/vocab.ttl">Academic Meta Tool Vocabulary</a>.</p>
+<p>Below are Linked Data identifiers for the Academic Meta Tool Properties found in the Academic Meta Tool Vocabulary.</p>
 <h3>Concept</h3>
 <h3><a name="placeholder">placeholder</a></h3>
 <table>
@@ -313,7 +301,7 @@
   </tr>
   <tr>
     <td>Definition:</td>
-    <td><code>What is a amt:placeholder?</code></td>
+    <td><code>Placeholder for a concept name.</code></td>
   </tr>
   <tr>
     <td>Label:</td>
@@ -328,6 +316,53 @@
     <td><code><a href="http://www.w3.org/2000/01/rdf-schema#Literal">http://www.w3.org/2000/01/rdf-schema#Literal</a></code></td>
   </tr>
 </table>
+<h3><a name="instanceOf">instanceOf</a></h3>
+<table>
+  <tr>
+    <td width='200px'>URI: </td>
+    <td><code>http://academic-meta-tool.xyz/vocab#instanceOf</code></td>
+  </tr>
+  <tr>
+    <td>Definition:</td>
+    <td><code>Instance of a Concept.</code></td>
+  </tr>
+  <tr>
+    <td>Label:</td>
+    <td><code>instance of</code></td>
+  </tr>
+  <tr>
+    <td>rdfs:domain</td>
+    <td><code><a href="http://academic-meta-tool.xyz/vocab#Concept">http://academic-meta-tool.xyz/vocab#Concept</a></code></td>
+  </tr>
+  <tr>
+    <td>rdfs:range</td>
+    <td><code><a href="http://academic-meta-tool.xyz/vocab#Concept">http://academic-meta-tool.xyz/vocab#Concept</a></code></td>
+  </tr>
+</table>
+<h3>Quadruple</h3>
+<h3><a name="weight">weight</a></h3>
+<table>
+  <tr>
+    <td width='200px'>URI: </td>
+    <td><code>http://academic-meta-tool.xyz/vocab#weight</code></td>
+  </tr>
+  <tr>
+    <td>Definition:</td>
+    <td><code>Value of weight (degree of vagueness) of the vague edge between [0;1].</code></td>
+  </tr>
+  <tr>
+    <td>Label:</td>
+    <td><code>weight</code></td>
+  </tr>
+  <tr>
+    <td>rdfs:domain</td>
+    <td><code><a href="http://www.w3.org/2002/07/owl#Thing">http://www.w3.org/2002/07/owl#Thing</a></code></td>
+  </tr>
+  <tr>
+    <td>rdfs:range</td>
+    <td><code><a href="http://www.w3.org/2001/XMLSchema#double">http://www.w3.org/2001/XMLSchema#double</a></code></td>
+  </tr>
+</table>
 <h3>RoleChainAxiom</h3>
 <h3><a name="antecedent1">antecedent1</a></h3>
 <table>
@@ -337,7 +372,7 @@
   </tr>
   <tr>
     <td>Definition:</td>
-    <td><code>What is a amt:antecedent1?</code></td>
+    <td><code>Edge one of the Role-Chain-Axiom.</code></td>
   </tr>
   <tr>
     <td>Label:</td>
@@ -349,7 +384,7 @@
   </tr>
   <tr>
     <td>rdfs:range</td>
-    <td><code><a href="http://www.w3.org/2000/01/rdf-schema#Role">http://www.w3.org/2000/01/rdf-schema#Role</a></code></td>
+    <td><code><a href="http://academic-meta-tool.xyz/vocab#Role">http://academic-meta-tool.xyz/vocab#Role</a></code></td>
   </tr>
 </table>
 <h3><a name="antecedent1">antecedent2</a></h3>
@@ -360,7 +395,7 @@
   </tr>
   <tr>
     <td>Definition:</td>
-    <td><code>What is a amt:antecedent2?</code></td>
+    <td><code>Edge two of the Role-Chain-Axiom.</code></td>
   </tr>
   <tr>
     <td>Label:</td>
@@ -372,7 +407,7 @@
   </tr>
   <tr>
     <td>rdfs:range</td>
-    <td><code><a href="http://www.w3.org/2000/01/rdf-schema#Role">http://www.w3.org/2000/01/rdf-schema#Role</a></code></td>
+    <td><code><a href="http://academic-meta-tool.xyz/vocab#Role">http://academic-meta-tool.xyz/vocab#Role</a></code></td>
   </tr>
 </table>
 <h3><a name="consequent">consequent</a></h3>
@@ -383,7 +418,7 @@
   </tr>
   <tr>
     <td>Definition:</td>
-    <td><code>What is a amt:consequent?</code></td>
+    <td><code>Conclution of the Role-Chain-Axiom.</code></td>
   </tr>
   <tr>
     <td>Label:</td>
@@ -395,7 +430,7 @@
   </tr>
   <tr>
     <td>rdfs:range</td>
-    <td><code><a href="http://www.w3.org/2000/01/rdf-schema#Role">http://www.w3.org/2000/01/rdf-schema#Role</a></code></td>
+    <td><code><a href="http://academic-meta-tool.xyz/vocab#Role">http://academic-meta-tool.xyz/vocab#Role</a></code></td>
   </tr>
 </table>
 <h3><a name="logic">logic</a></h3>
@@ -406,7 +441,7 @@
   </tr>
   <tr>
     <td>Definition:</td>
-    <td><code>What is a amt:logic?</code></td>
+    <td><code>Logic of the Role-Chain-Axiom.</code></td>
   </tr>
   <tr>
     <td>Label:</td>
@@ -430,7 +465,7 @@
   </tr>
   <tr>
     <td>Definition:</td>
-    <td><code>What is a amt:antecedent?</code></td>
+    <td><code>Way there of the Inverse-Axiom.</code></td>
   </tr>
   <tr>
     <td>Label:</td>
@@ -442,7 +477,7 @@
   </tr>
   <tr>
     <td>rdfs:range</td>
-    <td><code><a href="http://www.w3.org/2000/01/rdf-schema#Role">http://www.w3.org/2000/01/rdf-schema#Role</a></code></td>
+    <td><code><a href="http://academic-meta-tool.xyz/vocab#Role">http://academic-meta-tool.xyz/vocab#Role</a></code></td>
   </tr>
 </table>
 <h3><a name="inverse">inverse</a></h3>
@@ -453,7 +488,7 @@
   </tr>
   <tr>
     <td>Definition:</td>
-    <td><code>What is a amt:inverse?</code></td>
+    <td><code>Way back of the Inverse-Axiom.</code></td>
   </tr>
   <tr>
     <td>Label:</td>
@@ -465,7 +500,7 @@
   </tr>
   <tr>
     <td>rdfs:range</td>
-    <td><code><a href="http://www.w3.org/2000/01/rdf-schema#Role">http://www.w3.org/2000/01/rdf-schema#Role</a></code></td>
+    <td><code><a href="http://academic-meta-tool.xyz/vocab#Role">http://academic-meta-tool.xyz/vocab#Role</a></code></td>
   </tr>
 </table>
 <h3>DisjointAxiom</h3>
@@ -477,7 +512,7 @@
   </tr>
   <tr>
     <td>Definition:</td>
-    <td><code>What is a amt:role1?</code></td>
+    <td><code>First role of the Disjoint-Axiom.</code></td>
   </tr>
   <tr>
     <td>Label:</td>
@@ -489,7 +524,7 @@
   </tr>
   <tr>
     <td>rdfs:range</td>
-    <td><code><a href="http://www.w3.org/2000/01/rdf-schema#Role">http://www.w3.org/2000/01/rdf-schema#Role</a></code></td>
+    <td><code><a href="http://academic-meta-tool.xyz/vocab#Role">http://academic-meta-tool.xyz/vocab#Role</a></code></td>
   </tr>
 </table>
 <h3><a name="role2">role2</a></h3>
@@ -500,7 +535,7 @@
   </tr>
   <tr>
     <td>Definition:</td>
-    <td><code>What is a amt:role2?</code></td>
+    <td><code>Second role of the Disjoint-Axiom.</code></td>
   </tr>
   <tr>
     <td>Label:</td>
@@ -512,7 +547,7 @@
   </tr>
   <tr>
     <td>rdfs:range</td>
-    <td><code><a href="http://www.w3.org/2000/01/rdf-schema#Role">http://www.w3.org/2000/01/rdf-schema#Role</a></code></td>
+    <td><code><a href="http://academic-meta-tool.xyz/vocab#Role">http://academic-meta-tool.xyz/vocab#Role</a></code></td>
   </tr>
 </table>
 <h3>SelfDisjointAxiom</h3>
@@ -524,7 +559,7 @@
   </tr>
   <tr>
     <td>Definition:</td>
-    <td><code>What is a amt:role?</code></td>
+    <td><code>Role of the Self-Disjoint-Axiom.</code></td>
   </tr>
   <tr>
     <td>Label:</td>
@@ -536,7 +571,7 @@
   </tr>
   <tr>
     <td>rdfs:range</td>
-    <td><code><a href="http://www.w3.org/2000/01/rdf-schema#Role">http://www.w3.org/2000/01/rdf-schema#Role</a></code></td>
+    <td><code><a href="http://academic-meta-tool.xyz/vocab#Role">http://academic-meta-tool.xyz/vocab#Role</a></code></td>
   </tr>
 </table>
 
