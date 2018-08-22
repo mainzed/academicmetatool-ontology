@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Academic Meta Tool Ontology</title>
+    <meta name="viewport" content="width=device-width">
+    <link href="./index_files/css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="./index_files/syntax.css">
+    <link rel="stylesheet" href="./index_files/main.css">
+</head>
+
+<body>
+<section class="content">
+<article class="splash">
+
+<h1 id="amt-vocabulary">Academic Meta Tool Ontology</h1>
+<p><strong>Authors</strong>: Florian Thiery (i3mainz, RGZM) & Martin Unold (i3mainz)</p>
+<p><strong>Version</strong>: <a href="https://en.wikipedia.org/wiki/Leonard_Hofstadter">Leonard Edition</a></p>
+<p><strong>Date</strong>: 2018-01-19</p>
+<p><strong>Abstract</strong>: The Academic Meta Tool ontology / datamodel.</p>
+<p><strong>Copyright</strong>: This work is licensed under a <a href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</p>
+<p><strong>About this Document</strong>: This document is based on the <a href="http://geojson.org/geojson-ld/vocab.html">GEOJSON-LD VOCABULARY</a> by Sean Gillies (Mapbox) with a CC BY 4.0 license.</p>
+
+<h2 id="vocabulary">Vocabulary</h2>
+<p>The Academic Meta Tool Ontology is based on the <a href="http://academic-meta-tool.xyz/vocab" target="_blank">AMT Vocabulary</a>.</p>
+<p><a href="http://www.visualdataweb.de/webvowl/#iri=http://academic-meta-tool.xyz/amt.rdf" target="_blank"><img src="../vocab/amtontology.png" width="60%"></a></p>
+<p>Have a deeper look in an interactive visualisation using <a href="http://www.visualdataweb.de/webvowl/#iri=http://academic-meta-tool.xyz/amt.rdf" target="_blank">WebVOWL</a>.</p>
+
+<h2 id="visualisation-ontology-amt">Visualisation of a AMT Ontology</h2>
+<p><a href="http://academic-meta-tool.xyz/ontology/ontologyviewer.htm" target="_blank"><img src="../ontology/amtontologyimg_small.png" width="80%"></a></p>
+<p>Have a deeper look in an interactive visualisation using <a href="http://academic-meta-tool.xyz/ontology/ontologyviewer.htm" target="_blank">visjs</a>.</p>
+
+<h2 id="amt-classes">The Ontology</h2>
+<h3 id="instance-definition">Instance Definition</h3>
+<h3><a name="Concept">amt:Concept</a></h3>
+<h4><a name="Concept-model">Model</a></h4>
+<figure class="highlight">
+    <pre>
+        <code class="language-rdf" data-lang="rdf">
+          @prefix amt: &lt;http://academic-meta-tool.xyz/vocab#> .
+          @prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#> .
+          @prefix example: &lt;http://example.com/> .
+          example:c rdf:type amt:Concept .
+          example:c rdfs:label rdfs:Literal .
+          example:c amt:placeholder rdfs:Literal .</code>
+    </pre>
+</figure>
+<h4><a name="Concept-example">Example Class</a></h4>
+<figure class="highlight">
+    <pre>
+        <code class="language-rdf" data-lang="rdf">
+          @prefix amt: &lt;http://academic-meta-tool.xyz/vocab#> .
+          @prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#> .
+          @prefix example: &lt;http://example.com/> .
+          example:Person rdf:type amt:Concept .
+          example:Person rdfs:label "Person" .
+          example:Person amt:placeholder "Nachname, Vorname" .</code>
+    </pre>
+</figure>
+<h4><a name="Concept-example">Example Individual</a></h4>
+<figure class="highlight">
+    <pre>
+        <code class="language-rdf" data-lang="rdf">
+          @prefix amt: &lt;http://academic-meta-tool.xyz/vocab#> .
+          @prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#> .
+          @prefix example: &lt;http://example.com/> .
+          example:Leonard amt:instanceOf amt:Concept .
+          example:Leonard rdfs:label "Leonard Hofstadter" .</code>
+    </pre>
+</figure>
+<h3><a name="Role">amt:Role</a></h3>
+<h4><a name="Role-model">Model</a></h4>
+<figure class="highlight">
+    <pre>
+        <code class="language-rdf" data-lang="rdf">
+          @prefix amt: &lt;http://academic-meta-tool.xyz/vocab#> .
+          @prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#> .
+          @prefix example: &lt;http://example.com/> .
+          example:r rdf:type amt:Role .
+          example:r rdfs:label rdfs:Literal .
+          example:r rdfs:domain amt:Concept .
+          example:r rdfs:range amt:Concept .</code>
+    </pre>
+</figure>
+<h4><a name="Role-example">Example</a></h4>
+<figure class="highlight">
+    <pre>
+        <code class="language-rdf" data-lang="rdf">
+          @prefix amt: &lt;http://academic-meta-tool.xyz/vocab#> .
+          @prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#> .
+          @prefix example: &lt;http://example.com/> .
+          example:connectedWith rdf:type amt:Role .
+          example:connectedWith rdfs:label "is connected with" .
+          example:connectedWith rdfs:domain example:Person .
+          example:connectedWith rdfs:range example:Person .</code>
+    </pre>
+</figure>
+<h3><a name="RoleChainAxiom">amt:RoleChainAxiom</a></h3>
+<br>
+<a href="rca.png"><img src="rca.png" width="50%"></a>
+<h4><a name="RoleChainAxiom-model">Model</a></h4>
+<figure class="highlight">
+    <pre>
+        <code class="language-rdf" data-lang="rdf">
+          @prefix amt: &lt;http://academic-meta-tool.xyz/vocab#> .
+          @prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+          @prefix example: &lt;http://example.com/> .
+          amt:rca rdf:type amt:RoleChainAxiom .
+          amt:rca amt:antecedent1 amt:Role .
+          amt:rca amt:antecedent2 amt:Role .
+          amt:rca amt:consequent amt:Role .
+          amt:rca amt:logic amt:Logic .</code>
+    </pre>
+</figure>
+<h4><a name="RoleChainAxiom-example">Example</a></h4>
+<figure class="highlight">
+    <pre>
+        <code class="language-rdf" data-lang="rdf">
+          @prefix amt: &lt;http://academic-meta-tool.xyz/vocab#> .
+          @prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+          @prefix example: &lt;http://example.com/> .
+          example:RCA rdf:type amt:RoleChainAxiom .
+          example:RCA amt:antecedent1 example:connectedWith .
+          example:RCA amt:antecedent2 example:connectedWith .
+          example:RCA amt:consequent example:connectedWith .
+          example:RCA amt:logic amt:ProductLogic .</code>
+    </pre>
+</figure>
+<h3><a name="InverseAxiom">amt:InverseAxiom</a></h3>
+<br>
+<a href="ia.png"><img src="ia.png" width="50%"></a>
+<h4><a name="InverseAxiom-model">Model</a></h4>
+<figure class="highlight">
+    <pre>
+        <code class="language-rdf" data-lang="rdf">
+          @prefix amt: &lt;http://academic-meta-tool.xyz/vocab#> .
+          @prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+          @prefix example: &lt;http://example.com/> .
+          amt:ia rdf:type amt:InverseAxiom .
+          amt:ia amt:antecedent amt:Role .
+          amt:ia amt:inverse amt:Role .</code>
+    </pre>
+</figure>
+<h4><a name="InverseAxiom-example">Example</a></h4>
+<figure class="highlight">
+    <pre>
+        <code class="language-rdf" data-lang="rdf">
+          @prefix amt: &lt;http://academic-meta-tool.xyz/vocab#> .
+          @prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+          @prefix example: &lt;http://example.com/> .
+          example:IA rdf:type amt:InverseAxiom .
+          example:IA amt:antecedent example:interestOf .
+          example:IA amt:inverse example:interestedIn .</code>
+    </pre>
+</figure>
+<h3><a name="DisjointAxiom">amt:DisjointAxiom</a></h3>
+<h4><a name="DisjointAxiom-model">Model</a></h4>
+<figure class="highlight">
+    <pre>
+        <code class="language-rdf" data-lang="rdf">
+          @prefix amt: &lt;http://academic-meta-tool.xyz/vocab#> .
+          @prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+          @prefix example: &lt;http://example.com/> .
+          amt:da rdf:type amt:DisjointAxiom .
+          amt:da amt:role1 amt:Role .
+          amt:da amt:role2 amt:Role .</code>
+    </pre>
+</figure>
+<h4><a name="DisjointAxiom-example">Example</a></h4>
+<figure class="highlight">
+    <pre>
+        <code class="language-rdf" data-lang="rdf">
+          @prefix amt: &lt;http://academic-meta-tool.xyz/vocab#> .
+          @prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+          @prefix example: &lt;http://example.com/> .
+          example:DA rdf:type amt:DisjointAxiom .
+          example:DA amt:role1 example:istEinMusikinstrument .
+          example:DA amt:role1 example:istEinBuch .</code>
+    </pre>
+</figure>
+<h3><a name="SelfDisjointAxiom">amt:SelfDisjointAxiom</a></h3>
+<h4><a name="SelfDisjointAxiom-model">Model</a></h4>
+<figure class="highlight">
+    <pre>
+        <code class="language-rdf" data-lang="rdf">
+          @prefix amt: &lt;http://academic-meta-tool.xyz/vocab#> .
+          @prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+          @prefix example: &lt;http://example.com/> .
+          amt:sda rdf:type amt:SelfDisjointAxiom .
+          amt:sda amt:role amt:Role .</code>
+    </pre>
+</figure>
+<h4><a name="SelfDisjointAxiom-example">Example</a></h4>
+<figure class="highlight">
+    <pre>
+        <code class="language-rdf" data-lang="rdf">
+          @prefix amt: &lt;http://academic-meta-tool.xyz/vocab#> .
+          @prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+          @prefix example: &lt;http://example.com/> .
+          example:SDA rdf:type amt:SelfDisjointAxiom .
+          example:SDA amt:role example:superInterestOf .</code>
+    </pre>
+</figure>
+<h3 id="instance-definition">Quadruple</h3>
+<h4><a name="Concept-model">Model</a></h4>
+<figure class="highlight">
+    <pre>
+        <code class="language-rdf" data-lang="rdf">
+          @prefix amt: &lt;http://academic-meta-tool.xyz/vocab#> .
+          @prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#> .
+          @prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+          _:123 rdf:subject amt:Concept .
+          _:123 rdf:predicate amt:Role .
+          _:123 rdf:object amt:Concept .
+          _:123 amt:weight rdfs:Literal .</code>
+    </pre>
+</figure>
+<h4><a name="Concept-example">Example Quadruple</a></h4>
+<figure class="highlight">
+    <pre>
+        <code class="language-rdf" data-lang="rdf">
+          @prefix amt: &lt;http://academic-meta-tool.xyz/vocab#> .
+          @prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#> .
+          @prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+          _:123 rdf:subject example:Person .
+          _:123 rdf:predicate example:connectedWith .
+          _:123 rdf:object example:Person .
+          _:123 amt:weight "0.80" .</code>
+    </pre>
+</figure>
+
+</article>
+</section>
+</body>
+</html>
